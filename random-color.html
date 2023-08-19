@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Color Generator Tool</title>
+    </head>
+    <body>
+        <style>
+            body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.span {
+    height: 40px;
+}
+
+#container {
+    width: 600px; /* Adjust as needed */
+            height: 300px; /* Adjust as needed */
+            padding: 10px; /* Add padding for spacing inside the box */
+            margin-top: 60px; /* Add margin for spacing from above elements */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-left: 350px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+
+
+button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+</style>
+        
+
+
+<h1>Color Generator Tool</h1>
+        <p>
+            Welcome to the color generating tool. Designers can use this tool to generate fresh unique color schemes!
+        </p>
+        <button id="colorBtn">Change Color</button>
+        <button id="resetBtn">Reset Color</button>
+        <div id="container">Color Code: <span id="colorCode">#FFFFFF</span></div>
+        <script>
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for(let i=0; i<6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color; 
+            }
+            document.getElementById('colorBtn').addEventListener('click', function () {
+                const color = getRandomColor();
+                document.getElementById('container').style.backgroundColor = color;
+                document.getElementById('colorCode').innerText = color;
+            });
+            document.getElementById('colorBtn').addEventListener('mouseover', function() {
+                this.style.backgroundColor = 'navy';
+            });
+            document.getElementById('colorBtn').addEventListener('mouseout', function() {
+                this.style.backgroundColor = 'lightblue';
+            });
+            document.getElementById('resetBtn').addEventListener('click', function() {
+                document.getElementById('container').style.backgroundColor = "#FFFFFF";
+                document.getElementById('colorCode').innerText = "FFFFFF";
+            });
+
+        </script>
+    </body>
+</html>
